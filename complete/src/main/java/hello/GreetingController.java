@@ -4,6 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+
+import javax.validation.Valid;
+
 
 @Controller
 public class GreetingController {
@@ -14,4 +18,15 @@ public class GreetingController {
         return "greeting";
     }
 
+    @RequestMapping("/newRoute")
+    public String route(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "newRoute";
+    }
 }
+
+
+
+
+
+
